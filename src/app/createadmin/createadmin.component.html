@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <form [formGroup]="signup" (ngSubmit)="onsign()">
+        <div>
+          <label for="">firstname</label>
+          <input type="text" name="firstname" formControlName="firstname">
+          <span class="text-danger" *ngIf="form.firstname.touched&&form.firstname.invalid">
+            firstname is invalid.
+          </span>
+        </div>
+        <div>
+          <label for="">lastname</label>
+          <input type="text" name="lastname" formControlName="lastname">
+          <span class="text-danger" *ngIf="form.lastname.touched&&form.lastname.invalid">
+            lastname is invalid.
+          </span>
+        </div>
+        <div>
+          <label for="">email</label>
+          <input type="email" name="email" formControlName="email">
+          <div class="text-danger" *ngIf="form.email.touched&&form.email.invalid">
+            <span *ngIf="form.email.errors.required">email must be required.</span>
+            <span *ngIf="form.email.errors.email">email is in valid</span>
+          </div>
+        </div>
+        <div>
+          <label for="">password</label>
+          <input type="password" name="password" formControlName="password">
+          <div  class="text-danger" *ngIf="form.password.touched&&form.password.invalid">
+               <span *ngIf="form.password.errors.required">password must be required.</span>
+               
+          </div>
+        </div>
+        <div>
+          <label for="">confirmpassword</label>
+          <input type="password" name="confirmpassword" formControlName="confirmpassword">
+          <div  class="text-danger" *ngIf="form.confirmpassword.touched&&form.confirmpassword.invalid">
+               <span  *ngIf="form.confirmpassword.errors.required">confirm password must be required</span>
+               <span  *ngIf="form.confirmpassword.errors">
+                 the password  does not match
+               </span>
+</div>        </div>
+        <div>
+          <label for="">google link</label>
+          <input type="text" name="googlelink" formControlName="googlelink">
+        </div>
+        <div>
+          <label for="">twitterlink</label>
+          <input type="text" name="twitterlink" formControlName="twitterlink">
+        </div>
+  <div>
+    <button class="btn-primary">
+        Submit
+    </button>
+  </div>
+      </form>
+    </div>
+  </div>
+</div>
